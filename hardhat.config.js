@@ -3,7 +3,27 @@ require("hardhat-circom");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.16",
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.15",
+      },
+      {
+        version: "0.6.12",
+        settings: {},
+      },
+    ],
+    overrides: {
+      "contracts/BoardsetupVerifier.sol": {
+        version: "0.6.12",
+        settings: { }
+      },
+      "contracts/FireshotVerifier.sol": {
+        version: "0.6.12",
+        settings: { }
+      },
+    }
+  },
   circom: {
     // (optional) Base path for input files, defaults to `./circuits/`
     inputBasePath: "./circuits/src",

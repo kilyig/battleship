@@ -1,16 +1,16 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.15;
+pragma solidity ^0.8.0;
 
-import "./interfaces/IBoardSetupVerifier.sol";
-import "./interfaces/IFireShotVerifier.sol";
+import "./interfaces/IBoardsetupVerifier.sol";
+import "./interfaces/IFireshotVerifier.sol";
 import "./interfaces/IBattleshipGame.sol";
 
 contract BattleshipGame is IBattleshipGame {
     
-    IBoardSetupVerifier boardSetupVerifier;
-    IFireShotVerifier fireShotVerifier;
+    IBoardsetupVerifier boardsetupVerifier;
+    IFireshotVerifier fireshotVerifier;
 
-    struct BattleshipGame {
+    struct BattleshipGameState {
         /// The address of the two players.
         address[2] participants;
         /// The hash committing to the ship configuration of each playment.
@@ -26,18 +26,14 @@ contract BattleshipGame is IBattleshipGame {
         address winner;
     }
 
-    constructor(address _boardSetupVerifier, address _fireShotVerifier) {
-        boardSetupVerifier = IBoardSetupVerifier(_boardSetupVerifier);
-        fireShotVerifier = IFireShotVerifier(_fireShotVerifier);
+    constructor(address _boardsetupVerifier, address _fireshotVerifier) {
+        boardsetupVerifier = IBoardsetupVerifier(_boardsetupVerifier);
+        fireshotVerifier = IFireshotVerifier(_fireshotVerifier);
     }
 
     function forceToPlay(
-        uint256 _gameI, uint256[2] memory _shot) {
-
-    }
-
-
-    function gameFinished() {
+        uint256 _game, uint256[2] memory _shot
+    ) external {
 
     }
 }

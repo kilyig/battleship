@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./IBoardSetupVerifier.sol";
-import "./IFireShotVerifier.sol";
+import "./IBoardsetupVerifier.sol";
+import "./IFireshotVerifier.sol";
 
 
 interface IBattleshipGame {
