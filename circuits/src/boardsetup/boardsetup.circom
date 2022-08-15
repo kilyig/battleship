@@ -1,10 +1,10 @@
 pragma circom 2.0.0;
 
-include "../../node_modules/circomlib/circuits/bitify.circom";
-include "../../node_modules/circomlib/circuits/mimcsponge.circom";
+include "../../../node_modules/circomlib/circuits/bitify.circom";
+include "../../../node_modules/circomlib/circuits/mimcsponge.circom";
 
-include "./../templates/shiprange.circom";
-include "./../templates/shipsnonoverlapping.circom";
+include "../templates/shiprange.circom";
+include "../templates/shipsnonoverlapping.circom";
 
 /// Validates the specified ship placement is valid
 /// and computes a hash privately committing to the ship configuration.
