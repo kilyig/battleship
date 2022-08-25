@@ -6,7 +6,9 @@ import "./IFireshotVerifier.sol";
 
 
 interface IBattleshipGame {
-    // event Started(uint256 _gameId, address _by);
+    event ForceToPlay(uint256 _ticketNum, address _forcer, address _forcee, uint256 _deadlineToPlay, uint256[2] _shot, BattleshipGameState _gameState);
+    event Played(uint256 _ticketNum, address _forcee, uint256[2] _shot, BattleshipGameState _gameState);
+    event GameFinished(uint256 _finishedGameId);
     // event Joined(uint256 _gameId, address _by);
     // event ShotFired(uint256 _gameId, uint8 _shotIndex);
     // event ShotLanded(uint256 _gameId, uint8 _shipId);
@@ -37,7 +39,6 @@ interface IBattleshipGame {
         uint256 _hitShipId;
         uint256 _prevTurnShotIndex;
         uint256 _turnShotIndex;
-        uint256 deneme;
         uint256[2] a;
         uint256[2][2] b;
         uint256[2] c;
@@ -51,8 +52,9 @@ interface IBattleshipGame {
     ) external;
 
     function play(
-        BattleshipGameState memory _gameStateAfterForcedTurn,
-        bytes memory forceeForcedTurnSignature,
+        uint256 _ticketNum,
+        bytes memory forceeSignatureNewAgreedState,
+        FireshotResultData memory _fireshotResultData,
         uint256[2] memory _shot
     ) external;
 

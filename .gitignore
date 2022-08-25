@@ -23,3 +23,5 @@ typechain-types
 cache
 artifacts
 
+# Custom
+contracts/interfaces/IBattleshipGameStructs.sol
